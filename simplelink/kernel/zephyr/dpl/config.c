@@ -10,7 +10,7 @@
 #include "ti/drivers/power/PowerCC26X2.h"
 #endif /* CONFIG_HAS_CC13X2_CC26X2_SDK */
 
-#ifdef CONFIG_SOC_CC1352R
+#if defined(CONFIG_SOC_CC1352R) || defined(CONFIG_SOC_CC1352P)
 #define DeviceFamily_CC13X2
 #endif /* CONFIG_SOC_CC1352R */
 

@@ -17,6 +17,7 @@ zephyr_library_sources(
   driverlib/sys_ctrl.c
   driverlib/osc.c
   driverlib/driverlib_release.c
+  rf_patches/rf_patch_cpe_bt5.c
   )
 
 # Required for IEEE 802.15.4 support
@@ -41,7 +42,7 @@ zephyr_library_sources_ifdef(CONFIG_BLE_CC13XX_CC26XX
 # Required for RFCDoorbellSendTo which is not in ROM
 zephyr_library_sources_ifdef(CONFIG_BLE_CC13XX_CC26XX driverlib/rfc.c)
 
-if(CONFIG_SOC_CC1352R)
+if(CONFIG_SOC_CC1352R OR CONFIG_SOC_CC1352P)
   # Required for RFCDoorbellSendTo which is not in ROM
   set_source_files_properties(driverlib/rfc.c
     PROPERTIES COMPILE_DEFINITIONS "DeviceFamily_CC13X2;${COMPILER}" )
